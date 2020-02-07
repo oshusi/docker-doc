@@ -75,7 +75,7 @@ Filter{
 #output section
 Output{
 	Elasticsearch{
-		Hosts => ['elasticsearch"]
+		Hosts => ['elasticsearch']
 	}
 }
 
