@@ -37,15 +37,15 @@ docker run --rm -it -p 21:21 -p 42:42 -p 69:69/udp -p 80:80 -p 135:135 -p 443:44
 貼り付け元  <https://github.com/DinoTools/dionaea-docker> 
 
 
-docker run -d --restart always -v /data/elk/elasticsearch:/usr/share/elasticsearch/data -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node"  --name elasticsearch
+docker run -d --restart always -v /data/elk/elasticsearch:/usr/share/elasticsearch/data -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node"  --name elasticsearch docker.elastic.co/elasticsearch/elasticsearch:7.5.2
 
 貼り付け元  <https://qiita.com/okcoder/items/00c60614b819edc0c0b8> 
 
-docker run -d --restart always -v /data/elk/logstash/pipeline:/usr/share/logstash/pipeline -v /data/elk/log:/var/log --link elasticsearch:elasticsearch  --name logstash
+docker run -d --restart always -v /data/elk/logstash/pipeline:/usr/share/logstash/pipeline -v /data/elk/log:/var/log --link elasticsearch:elasticsearch  --name logstash docker.elastic.co/logstash/logstash:7.5.2
 
 貼り付け元  <https://qiita.com/okcoder/items/00c60614b819edc0c0b8> 
 
-docker run -d --restart always -p 5601:5601 --link elasticsearch:elasticsearch -e ELASTICSEARCH_URL=http://elasticsearch:9200 --name kibana
+docker run -d --restart always -p 5601:5601 --link elasticsearch:elasticsearch -e ELASTICSEARCH_URL=http://elasticsearch:9200 --name  kibana docker.elastic.co/kibana/kibana:7.5.2
 
 貼り付け元  <https://qiita.com/okcoder/items/00c60614b819edc0c0b8>
 ```
