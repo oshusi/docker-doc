@@ -27,7 +27,7 @@ sudo docker pull docker.elastic.co/logstash/logstash:7.5.2
 
 ■起動時のコマンド
 ```
-sudo docker run -p 2222:2222 cowrie/cowrie
+sudo docker run -d --restart always -p 2222:2222 cowrie/cowrie
 
 貼り付け元  <https://github.com/cowrie/cowrie> 
 
