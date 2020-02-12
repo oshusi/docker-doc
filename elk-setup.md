@@ -8,8 +8,8 @@ mkdir /data/elk/elasticsearch
 #logstash用共有フォルダ作成
 mkdir -p /data/elk/logstash/pipeline
 #ハニポ用共有フォルダ作成
-mkdir -p /data/cowrie/log
-mkdir -p /data/dionaea/log
+mkdir -p /data/elk/log/cowrie
+mkdir -p /data/elk/log/dionaea
 
 貼り付け元  <https://qiita.com/okcoder/items/00c60614b819edc0c0b8> 
 ```
@@ -20,19 +20,19 @@ mkdir -p /data/dionaea/log
 Input{
 	#cowrie
 	File{
-		Path => "/data/cowrie/log/cowrie.json"
+		Path => "/data/elk/log/cowrie/cowrie.json"
 		Codec => json
 		Type => "Cowrie"
 	}
 	#dionaea
 	File{
-		Path => "/data/dionaea/log/dionaea.json"
+		Path => "/data/elk/log/dionaea/dionaea.json"
 		Codec => json
 		Type => "Dionaea"
 	}
 }
 
-#filter section
+#filter section ★今はtype非推奨のため、multiple-pipelineに変更予定
 Filter{
 	#cowrie
 	If [type] == "Cowrie" {
@@ -75,7 +75,7 @@ Filter{
 #output section
 Output{
 	Elasticsearch{
-		Hosts => ['elasticsearch']
+		Hosts => ['elasticsearch:9200']
 	}
 }
 
