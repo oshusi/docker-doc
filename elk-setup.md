@@ -16,69 +16,29 @@ mkdir -p /data/elk/log/dionaea
 
 ■logstash設定ファイル
 ```
-#input section
-Input{
-	#cowrie
-	File{
-		Path => "/data/elk/log/cowrie/cowrie.json"
-		Codec => json
-		Type => "Cowrie"
-	}
-	#dionaea
-	File{
-		Path => "/data/elk/log/dionaea/dionaea.json"
-		Codec => json
-		Type => "Dionaea"
+input{
+	file{
+		path => "/data/elk/log/cowrie/cowrie.json"
+		start_position => beginning
+		codec => "json"
 	}
 }
 
 #filter section ★今はtype非推奨のため、multiple-pipelineに変更予定
-Filter{
-	#cowrie
-	If [type] == "Cowrie" {
-		Date{
-			Match => ["timestamp", "ISO8601"]
-		}
-		Mutate{
-			Rename => {
-				"dst_port" => "dest_port"
-				"dst_ip" => "dest_ip"
-			}
-		}
-	}
-	#dionaea
-	if [type] == "Dionaea" {
-		date {
-			match => [ "timestamp", "ISO8601" ]
-		}
-		mutate {
-			rename => {
-				"dst_port" => "dest_port"
-				"dst_ip" => "dest_ip"
-			}
-			gsub => [
-				"src_ip", "::ffff:", "",
-				"dest_ip", "::ffff:", ""
-			]
-		}
-		if [credentials] {
-			mutate {
-				add_field => {
-					"username" => "%{[credentials][username]}"
-					"password" => "%{[credentials][password]}"
-				}
-				remove_field => "[credentials]"
-			}
-		}
-	}
-}
-#output section
-Output{
-	Elasticsearch{
-		Hosts => ['elasticsearch:9200']
+filter{
+	date{
+		match => ["timestamp", "ISO8601"]
 	}
 }
 
+output{
+	elasticsearch{
+		hosts => ['elasticsearch:9200']
+		index => "logstash-%{+YYYY.MM.dd}"
+	}
+}
+
+★outputのhostsがelasticsearchなのはコンテナの名前がそうなるから
 ```
 
 ■起動時のコマンド
