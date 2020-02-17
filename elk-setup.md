@@ -43,7 +43,7 @@ output{
 
 ■起動時のコマンド
 ```
-sudo docker run -d -v /data/elk/log/cowrie:/cowrie/cowrie-git/var/log/cowrie --restart always -p 2222:2222 cowrie/cowrie
+sudo docker run -d -v /data/elk/log/cowrie:/cowrie/cowrie-git/var/log/cowrie --restart always -p 22:2222 cowrie/cowrie
 
 貼り付け元  <https://github.com/cowrie/cowrie> 
 
