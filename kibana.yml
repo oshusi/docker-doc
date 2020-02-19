@@ -10,3 +10,7 @@ xpack.monitoring.ui.container.elasticsearch.enabled: true
 
 elasticsearch.username: kibana
 elasticsearch.password: 設定したパスワード
+
+server.ssl.enabled: true
+server.ssl.key: /usr/share/kibana/config/kibana.key
+server.ssl.certificate: /usr/share/kibana/config/kibana.crt
