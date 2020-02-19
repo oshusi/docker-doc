@@ -1,4 +1,4 @@
-■セキュリティの有効化
+■セキュリティの有効化、パスワード設定
 1. /usr/share/elasticsearch/config/elasticsearch.yml に設定を追加
 ```
 cluster.name: "docker-cluster"
