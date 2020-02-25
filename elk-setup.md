@@ -41,6 +41,11 @@ output{
 ★outputのhostsがelasticsearchなのはコンテナの名前がそうなるから
 ```
 
+■認証局用
+```
+sudo docker run -d --restart always -v /data/elk/certificate:/usr/share/elasticsearch/certificate  -e "discovery.type=single-node"  --name ca docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+```
+
 ■起動時のコマンド
 ```
 sudo docker run -d -v /data/elk/log/cowrie:/cowrie/cowrie-git/var/log/cowrie --restart always -p 22:2222 cowrie/cowrie
