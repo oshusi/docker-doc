@@ -48,7 +48,7 @@ sudo docker run -d --restart always -v /data/elk/certificate:/usr/share/elastics
 
 ■起動時のコマンド
 ```
-sudo docker run -d -v /data/elk/log/cowrie:/cowrie/cowrie-git/var/log/cowrie --restart always -p 22:2222 cowrie/cowrie
+sudo docker run -d -v /data/elk/log/cowrie:/cowrie/cowrie-git/var/log/cowrie --restart always -p 22:2222 --name cowrie cowrie/cowrie
 
 貼り付け元  <https://github.com/cowrie/cowrie> 
 
@@ -66,7 +66,7 @@ sudo docker run -d --restart always -v /data/elk/logstash/pipeline:/usr/share/lo
 
 貼り付け元  <https://qiita.com/okcoder/items/00c60614b819edc0c0b8> 
 
-sudo docker run -d --restart always -p 5601:5601 --link elasticsearch:elasticsearch -e ELASTICSEARCH_URL=http://elasticsearch:9200 --name  kibana docker.elastic.co/kibana/kibana:7.5.2
+sudo docker run -d --restart always -p 5601:5601 --link elasticsearch:elasticsearch -v /data/elk/kibana:/usr/share/kibana -e ELASTICSEARCH_URL=http://elasticsearch:9200 --name  kibana docker.elastic.co/kibana/kibana:7.5.2
 
 貼り付け元  <https://qiita.com/okcoder/items/00c60614b819edc0c0b8>
 ```
