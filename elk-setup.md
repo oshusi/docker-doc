@@ -62,7 +62,7 @@ sudo docker run -d --restart always -v /data/elk/elasticsearch:/usr/share/elasti
 
 貼り付け元  <https://qiita.com/okcoder/items/00c60614b819edc0c0b8> 
 
-sudo docker run -d --restart always -v /data/elk/logstash/pipeline:/usr/share/logstash/pipeline -v /data/elk/log:/var/log --link elasticsearch:elasticsearch  --name logstash docker.elastic.co/logstash/logstash:7.5.2
+sudo docker run -d --restart always -v /data/elk/logstash/pipeline:/usr/share/logstash/pipeline -v /data/elk/logstash/config:/usr/share/logstash/config -v /data/elk/log:/var/log --link elasticsearch:elasticsearch  --name logstash docker.elastic.co/logstash/logstash:7.5.2
 
 貼り付け元  <https://qiita.com/okcoder/items/00c60614b819edc0c0b8> 
 
