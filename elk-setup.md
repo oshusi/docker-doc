@@ -66,7 +66,7 @@ sudo docker run -d --restart always -v /data/elk/logstash/pipeline:/usr/share/lo
 
 貼り付け元  <https://qiita.com/okcoder/items/00c60614b819edc0c0b8> 
 
-sudo docker run -d --restart always -p 5601:5601 --link elasticsearch:elasticsearch -v /data/elk/kibana:/usr/share/kibana -e ELASTICSEARCH_URL=http://elasticsearch:9200 --name  kibana docker.elastic.co/kibana/kibana:7.5.2
+sudo docker run -d --restart always -p 5601:5601 --link elasticsearch:elasticsearch -v /data/elk/kibana/certificate:/usr/share/kibana/certificate -e ELASTICSEARCH_URL=http://elasticsearch:9200 --name  kibana docker.elastic.co/kibana/kibana:7.5.2
 
 貼り付け元  <https://qiita.com/okcoder/items/00c60614b819edc0c0b8>
 ```
