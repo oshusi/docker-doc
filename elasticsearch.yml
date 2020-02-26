@@ -5,11 +5,11 @@ xpack.security.enabled: true
 
 xpack.security.transport.ssl.enabled: true
 xpack.security.transport.ssl.verification_mode: certificate
-xpack.security.transport.ssl.key: /usr/share/elasticsearch/data/elasticsearch/elasticsearch.key
-xpack.security.transport.ssl.certificate_authorities: /usr/share/elasticsearch/data/elasticsearch/elasticsearch.crt
-xpack.security.transport.ssl.certificate: /usr/share/elasticsearch/data/elasticsearch/elasticsearch.crt
+xpack.security.transport.ssl.key: /usr/share/elasticsearch/data/certificate/elasticsearch.key
+xpack.security.transport.ssl.certificate_authorities: /usr/share/elasticsearch/data/certificate/elasticsearch.crt
+xpack.security.transport.ssl.certificate: /usr/share/elasticsearch/data/certificate/elasticsearch.crt
 
 xpack.security.http.ssl.enabled: true
-xpack.security.http.ssl.key: /usr/share/elasticsearch/data/elasticsearch/elasticsearch.key
-xpack.security.http.ssl.certificate_authorities: /usr/share/elasticsearch/data/elasticsearch/elasticsearch.crt
-xpack.security.http.ssl.certificate: /usr/share/elasticsearch/data/elasticsearch/elasticsearch.crt
+xpack.security.http.ssl.key: /usr/share/elasticsearch/data/certificate/elasticsearch.key
+xpack.security.http.ssl.certificate_authorities: /usr/share/elasticsearch/data/certificate/elasticsearch.crt
+xpack.security.http.ssl.certificate: /usr/share/elasticsearch/data/certificate/elasticsearch.crt
