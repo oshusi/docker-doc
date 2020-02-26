@@ -5,9 +5,11 @@
 # Default Kibana configuration for docker target
 server.name: kibana
 server.host: "0"
-elasticsearch.hosts: [ "http://elasticsearch:9200" ]
+elasticsearch.hosts: [ "https://elasticsearch:9200" ]
 xpack.monitoring.ui.container.elasticsearch.enabled: true
 
+elasticsearch.ssl.certificateAuthorities: /usr/share/kibana/certificate/elasticsearch.pem
+elasticsearch.ssl.verificationMode: certificate
 elasticsearch.username: kibana
 elasticsearch.password: 設定したパスワード
 
