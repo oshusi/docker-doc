@@ -11,7 +11,7 @@ POST _security/role/logstash_writer
 
 POST _security/user/logstash_internal
 {
-  "password" : "testpassword",
+  "password" : "x-pack-test-password",
   "roles" : [ "logstash_writer"],
   "full_name" : "Internal Logstash User"
 }
