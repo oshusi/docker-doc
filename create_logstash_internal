@@ -1,0 +1,34 @@
+POST _security/role/logstash_writer
+{
+  "cluster": ["manage_index_templates", "monitor", "manage_ilm"], 
+  "indices": [
+    {
+      "names": [ "*" ], 
+      "privileges": ["all"]  
+    }
+  ]
+}
+
+POST _security/user/logstash_internal
+{
+  "password" : "testpassword",
+  "roles" : [ "logstash_writer"],
+  "full_name" : "Internal Logstash User"
+}
+
+POST _security/role/logstash_reader
+{
+  "indices": [
+    {
+      "names": [ "*" ], 
+      "privileges": ["read","view_index_metadata"]
+    }
+  ]
+}
+
+POST /_security/user/logstash_user
+{
+  "password" : "x-pack-test-password",
+  "roles" : [ "logstash_reader", "logstash_admin"], 
+  "full_name" : "Kibana User for Logstash"
+}
