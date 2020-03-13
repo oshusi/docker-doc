@@ -11,6 +11,7 @@ xpack.security.enabled: true
 $ ./usr/share/elasticsearch/bin/elasticsearch-setup-passwords interactive
 ```
 →それぞれのパスワードを設定
+
 3. http://xx.xx.xx.xx:9200/にアクセスして、ログイン画面が表示されることを確認
 4. /usr/share/kibana/config/kibana.yml に設定を追加
 ```
