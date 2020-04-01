@@ -1,4 +1,4 @@
-root@ubuntu:/etc/cron.daily$ cat update.sh 
+root@ubuntu:/etc/cron.daily$ cat update
 #!/bin/bash
 SECONDS=0
 echo updateします...
@@ -13,7 +13,7 @@ echo remove完了...
 time=$SECONDS
 echo $time"秒かかりました。"
 echo 完了
-root@ubuntu:/etc/cron.daily$ sudo chmod 755 update.sh 
+root@ubuntu:/etc/cron.daily$ sudo chmod 755 update 
 root@ubuntu:/etc/cron.daily$ ls -al
 合計 76
 drwxr-xr-x   2 root root  4096 Mar 31 17:17 .
@@ -32,4 +32,4 @@ drwxr-xr-x 126 root root 12288 Mar 30 21:59 ..
 -rwxr-xr-x   1 root root  3477 Feb 20  2018 popularity-contest
 -rwxr-xr-x   1 root root   246 Mar 21  2018 ubuntu-advantage-tools
 -rwxr-xr-x   1 root root   214 Nov 12  2018 update-notifier-common
--rwxr-xr-x   1 root root   285 Mar 31 17:17 update.sh
+-rwxr-xr-x   1 root root   285 Mar 31 17:17 update
