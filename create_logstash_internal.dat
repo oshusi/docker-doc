@@ -4,7 +4,7 @@ POST _security/role/logstash_writer
   "indices": [
     {
       "names": [ "*" ], 
-      "privileges": ["all"]  
+      "privileges": ["create","create_doc","create_index","delete","delete_index","index","manage","manage_follow_index","manage_ilm","manage_leader_index","write"]  
     }
   ]
 }
