@@ -2,39 +2,43 @@ version: '3'
 
 services:
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
     container_name: elasticsearch
     restart: always
     environment:
       discovery.type: single-node
     volumes:
       - /data/elk/elasticsearch/data:/usr/share/elasticsearch/data
-      - /data/elk/elasticsearch/certificate:/usr/share/elasticsearch/certificate
+      - /data/elk/certificate:/usr/share/elasticsearch/config/certificate
       - /data/elk/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     ports:
       - 9200:9200
       - 9300:9300
 
   logstash:
-    image: docker.elastic.co/logstash/logstash:7.5.2
+    image: docker.elastic.co/logstash/logstash:7.6.2
     container_name: logstash
     restart: always
     depends_on:
       - elasticsearch
+    environment:
+      ELASTICSEARCH_URL: https://elasticsearch:9200
     volumes:
       - /data/elk/logstash/pipeline:/usr/share/logstash/pipeline
       - /data/elk/log:/var/log
+      - /data/elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - /data/elk/certificate:/usr/share/logstash/config/certificate
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.5.2
+    image: docker.elastic.co/kibana/kibana:7.6.2
     container_name: kibana
     restart: always
     depends_on:
       - elasticsearch
     environment:
-      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_URL: https://elasticsearch:9200
     volumes:
       - /data/elk/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
-      - /data/elk/kibana/certificate:/usr/share/kibana/certificate
+      - /data/elk/certificate:/usr/share/kibana/config/certificate
     ports:
       - 5601:5601
