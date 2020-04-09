@@ -14,4 +14,4 @@ services:
       '
     user: "0"
     working_dir: /usr/share/elasticsearch
-    volumes: ['./certs:/certs', '.:/usr/share/elasticsearch/config/certificates']
+    volumes: ['/data/elk/certificate:/certs', '.:/usr/share/elasticsearch/config/certificates']
