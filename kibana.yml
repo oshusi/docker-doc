@@ -11,7 +11,7 @@ xpack.monitoring.ui.container.elasticsearch.enabled: true
 
 # elasticsearch.username: kibana
 # elasticsearch.password: 設定したパスワード
-# elasticsearch.ssl.certificateAuthorities: /usr/share/kibana/certificate/ca/ca.crt
+# elasticsearch.ssl.certificateAuthorities: /usr/share/kibana/config/certificate/ca/ca.crt
 # elasticsearch.ssl.verificationMode: certificate
 
 
