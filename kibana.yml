@@ -16,5 +16,5 @@ xpack.monitoring.ui.container.elasticsearch.enabled: true
 
 
 # server.ssl.enabled: true
-# server.ssl.key: /usr/share/kibana/certificate/kibana/kibana.key
-# server.ssl.certificate: /usr/share/kibana/certificate/kibana/kibana.crt
+# server.ssl.key: /usr/share/kibana/config/certificate/kibana/kibana.key
+# server.ssl.certificate: /usr/share/kibana/config/certificate/kibana/kibana.crt
