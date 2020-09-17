@@ -1,0 +1,32 @@
+  cowrie:
+    image: cowrie/cowrie
+    container_name: cowrie
+    restart: always
+    volumes:
+      - /data/elk/log/cowrie:/cowrie/cowrie-git/var/log/cowrie
+    ports:
+      - 22:2222
+
+  dionaea:
+    image: my-dionaea
+    container_name: dionaea
+    restart: always
+    volumes:
+      - /data/elk/log/dionaea:/opt/dionaea/var/log
+    ports:
+      - 21:21
+      - 42:42
+      - 69:69/udp
+      - 80:80
+      - 135:135
+      - 443:443
+      - 445:445
+      - 1433:1433
+      - 1723:1723
+      - 1833:1833
+      - 1900:1900/udp
+      - 3306:3306
+      - 5060:5060
+      - 5060:5060/udp
+      - 5061:5061
+      - 11211:11211
