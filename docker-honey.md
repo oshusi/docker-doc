@@ -5,8 +5,10 @@ sudo docker pull cowrie/cowrie
 
 ■Dionaea
 ```
-git clone https://github.com/Dinotools/dionaea-docker
-cd 0.6
+vm Dockerfile
+FROM dinotools/dionaea:latest
+COPY conf/your-service.yaml /opt/dionaea/etc/dionaea/services-enabled/
+COPY conf/your-ihandler.yaml /opt/dionaea/etc/dionaea/ihandlers-enabled/
 sudo docker build . -t my-dionaea
 ```
 
